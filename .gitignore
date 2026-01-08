@@ -205,3 +205,63 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+# ============================================
+# VIGIL-ROUTE SPECIFIC PROTECTIONS
+# ============================================
+
+# AI Model Files (too large for GitHub + proprietary)
+*.keras
+*.h5
+*.pb
+*.onnx
+*.tflite
+models/*.keras
+models/*.h5
+
+# Video Files (too large + may contain personal data)
+*.mp4
+*.avi
+*.mov
+*.mkv
+demo_fleet/*.mp4
+demo_fleet/*.avi
+
+# Dataset & Training Data (large + may contain sensitive locations)
+dataset/
+raw_data/
+annotations/
+*.jpg
+*.jpeg
+*.png
+!demo_outputs/**/*.jpg
+!demo_outputs/**/*.png
+
+# Excel Reports (may contain real GPS coordinates)
+*.xlsx
+*.xls
+!demo_outputs/**/*.xlsx
+
+# HTML Maps (may contain sensitive geolocation)
+*.html
+!demo_outputs/**/*.html
+
+# Jupyter Notebook Outputs (may contain API keys)
+*.ipynb_checkpoints/
+
+# API Keys & Secrets (CRITICAL!)
+*.env
+.env.local
+secrets.json
+credentials.json
+api_keys.txt
+
+# OBD-II Hardware Config (device-specific)
+obd_config.json
+hardware_settings.yaml
+
+# Google Colab Temp Files
+drive/
+MyDrive/
+
