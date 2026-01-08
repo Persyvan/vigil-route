@@ -40,30 +40,38 @@ Conçu pour combler l'écart entre les réparations réactives (plaintes citoyen
 - **🛡️ Architecture Confidentialité** : Couche de détection YOLOv8 (floutage piétons opérationnel)
 
 ---
-
 ## 🎬 Démo & Visuels
 
 ### Mode Flotte (Analyse Vidéo Temps Réel)
-*Traitement dashcam avec overlay HUD et protection de la vie privée*
+*Traitement dashcam avec overlay HUD et protection vie privée*
 
-📹 **Vidéo démo complète** : [Voir sur LinkedIn](#) *(à venir)*
+![Aperçu HUD Flotte](demo_outputs/fleet_examples/fleet_hud_screenshot_01.jpg)
+
+📹 **Vidéo démo complète (2 min) :** [Voir sur LinkedIn](#) *(à venir)*  
+🎥 **Alternative :** [Voir sur YouTube](https://youtube.com/...) *(non répertorié - disponible sur demande)*
 
 **Sorties Clés :**
-- Vidéo annotée avec boîtes de détection
-- Score de danger en temps réel
+- Détection défauts temps réel avec boîtes délimitation
+- Algorithme score danger en action
 - Cartographie trajectoire GPS
-- Rapports Excel avec analyse image par image
+- Analyse Excel image par image
+
+---
 
 ### Mode Citoyen (Simulation App 311)
-*Traitement de photos smartphone avec géolocalisation automatique*
+*Traitement photos smartphone avec géolocalisation automatique*
 
-**Exemples de Résultats :**
+**Exemples Résultats Détection :**
 
-| Image d'Entrée | Classification IA | Confiance | Niveau de Risque | Action Requise |
-|----------------|-------------------|-----------|------------------|----------------|
-| `IMG_2826.jpg` | DÉFORMATION | 98% | 🟠 **ÉLEVÉ** | Inspection Requise |
-| `IMG_3288.jpg` | NID-DE-POULE | 96% | 🔴 **CRITIQUE** | Réparation Immédiate |
-| `IMG_3052.jpg` | ROUTE SAINE | 100% | 🟢 **AUCUN** | Aucune Action |
+| Image d'Entrée | Classification IA | Confiance | Niveau Risque | Action Requise |
+|----------------|-------------------|-----------|---------------|----------------|
+| ![Photo 1](demo_outputs/citizen_examples/detection_01_pothole.jpg) | **NID-DE-POULE** | 96% | 🔴 **CRITIQUE** | Réparation Immédiate |
+| ![Photo 2](demo_outputs/citizen_examples/detection_02_deformation.jpg) | **DÉFORMATION** | 98% | 🟠 **ÉLEVÉ** | Inspection Requise |
+| ![Photo 3](demo_outputs/citizen_examples/detection_03_healthy.jpg) | **ROUTE SAINE** | 100% | 🟢 **AUCUN** | Aucune Action |
+
+**📊 Rapports Exemples :**
+- [Rapport Excel (Démo)](demo_outputs/rapport_demo_anonymise.xlsx) - Niveaux urgence codes couleur
+- [Carte Interactive (Démo)](demo_outputs/carte_interactive_demo.html) - Cliquer pour visualisation géospatiale
 
 ---
 
@@ -104,7 +112,8 @@ def analyser_risque(classe, confiance, vitesse):
         return "🟡 MOYENNE", "SURVEILLANCE"
     else:
         return "🟢 FAIBLE", "MONITORING"
-2. Seuils de Détection Adaptatifs
+
+### 2. Seuils de Détection Adaptatifs
 Pour réduire les faux positifs à haute vitesse (approche sécurité d'abord), le modèle ajuste dynamiquement sa sensibilité :
 
 Zone de Vitesse	Seuil Nid-de-Poule	Seuil Déformation	Justification
