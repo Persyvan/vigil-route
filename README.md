@@ -263,6 +263,35 @@ brain = VigilBrain('models/vigil_route_classifier_v9.keras')
 result = brain.analyze('test_images/pothole_01.jpg', speed=60)
 print(result)
 # Output: {'class': 'nid_de_poule', 'confidence': 0.96, 'urgency': 'CRITICAL'}
+
+---
+
+## 📥 Model Access
+
+The trained **MobileNetV2 model** (`vigil_route_classifier_v9_open_world.keras` - 89 MB) is available **upon request** for:
+
+- 🎓 Academic research collaboration
+- 🏙️ Smart city pilot projects  
+- 🔬 Technical evaluation by municipal engineering teams
+- 💼 Employment screening (recruiters/hiring managers)
+
+### How to Request Access
+
+📧 **Email:** persy.maki.ml@gmail.com
+
+**Please include:**
+1. Your name and affiliation (company/university)
+2. Intended use case
+3. Brief description of your project or evaluation purpose
+
+**⏱️ Response time:** Access typically granted within 24-48 hours for legitimate requests.
+
+### Future Public Release
+
+Once the project reaches significant adoption, the model will be migrated to **🤗 Hugging Face Hub** for public access with proper licensing.
+
+---
+
 🔮 Roadmap & Future Work
 Current Status (V9 - MVP)
 ✅ MobileNetV2 core trained (87.9% accuracy)
