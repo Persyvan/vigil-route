@@ -39,33 +39,41 @@ Designed to bridge the gap between reactive repairs (citizen complaints) and pro
 - **🗺️ Geospatial Visualization**: Interactive Folium maps with priority markers
 - **🛡️ Privacy Architecture**: YOLOv8-based detection layer (pedestrian blur operational)
 
----
-
 ## 🎬 Demo & Visuals
 
 ### Fleet Mode (Real-Time Video Analysis)
 *Dashcam processing with HUD overlay and privacy protection*
 
-📹 **Full demo video**: [Watch on LinkedIn](#) *(coming soon)*
+![Fleet HUD Preview](demo_outputs/fleet_examples/fleet_hud_screenshot_01.jpg)
+
+📹 **Full demo video (2 min):** [Watch on LinkedIn](#) *(coming soon)*  
+🎥 **Alternative:** [Watch on YouTube](https://youtube.com/...) *(unlisted - available upon request)*
 
 **Key Outputs:**
-- Annotated video with detection boxes
-- Real-time danger scoring
+- Real-time defect detection with bounding boxes
+- Danger scoring algorithm in action
 - GPS trajectory mapping
-- Excel reports with frame-by-frame analysis
+- Frame-by-frame Excel analysis
+
+---
 
 ### Citizen Mode (311 App Simulation)
 *Processing smartphone photos with automatic geolocation*
 
-**Example Results:**
+**Example Detection Results:**
 
 | Input Image | AI Classification | Confidence | Risk Level | Action Required |
 |-------------|-------------------|------------|------------|-----------------|
-| `IMG_2826.jpg` | DEFORMATION | 98% | 🟠 **HIGH** | Inspection Required |
-| `IMG_3288.jpg` | POTHOLE | 96% | 🔴 **CRITICAL** | Immediate Repair |
-| `IMG_3052.jpg` | HEALTHY ROAD | 100% | 🟢 **NONE** | No Action |
+| ![Photo 1](demo_outputs/citizen_examples/detection_01_pothole.jpg) | **POTHOLE** | 96% | 🔴 **CRITICAL** | Immediate Repair |
+| ![Photo 2](demo_outputs/citizen_examples/detection_02_deformation.jpg) | **DEFORMATION** | 98% | 🟠 **HIGH** | Inspection Required |
+| ![Photo 3](demo_outputs/citizen_examples/detection_03_healthy.jpg) | **HEALTHY ROAD** | 100% | 🟢 **NONE** | No Action |
+
+**📊 Sample Reports:**
+- [Excel Report (Demo)](demo_outputs/rapport_demo_anonymise.xlsx) - Color-coded urgency levels
+- [Interactive Map (Demo)](demo_outputs/carte_interactive_demo.html) - Click to view geospatial visualization
 
 ---
+
 
 ## 🧠 The "Smart" Logic: Adaptive Risk Scoring
 
