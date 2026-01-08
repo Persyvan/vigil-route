@@ -292,6 +292,7 @@ Une fois que le projet atteindra une adoption significative, le modèle sera mig
 
 ---
 
+
 🔮 Feuille de Route & Travaux Futurs
 Statut Actuel (V9 - MVP)
 ✅ Cœur MobileNetV2 entraîné (87,9% précision)
