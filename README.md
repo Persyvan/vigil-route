@@ -10,7 +10,7 @@
 **Deep Learning system for automated road defect detection using MobileNetV2.**  
 *A Privacy-First, Edge-AI solution for Smart Cities.*
 
-Developed by **Persy Maki ND** | AI/ML Engineering Student
+Developed by **Persy Maki Ndombe** | AI/ML Engineering Student
 
 ---
 
