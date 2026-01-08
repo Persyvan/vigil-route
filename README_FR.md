@@ -263,6 +263,35 @@ brain = VigilBrain('models/vigil_route_classifier_v9.keras')
 result = brain.analyze('test_images/pothole_01.jpg', speed=60)
 print(result)
 # Sortie : {'class': 'nid_de_poule', 'confidence': 0.96, 'urgency': 'CRITICAL'}
+
+---
+
+## 📥 Accès au Modèle
+
+Le **modèle MobileNetV2 entraîné** (`vigil_route_classifier_v9_open_world.keras` - 89 Mo) est disponible **sur demande** pour :
+
+- 🎓 Collaboration de recherche académique
+- 🏙️ Projets pilotes de villes intelligentes
+- 🔬 Évaluation technique par équipes d'ingénierie municipale
+- 💼 Évaluation de recrutement (recruteurs/gestionnaires d'embauche)
+
+### Comment Demander l'Accès
+
+📧 **Courriel :** persy.maki.ml@gmail.com
+
+**Veuillez inclure :**
+1. Votre nom et affiliation (entreprise/université)
+2. Cas d'utilisation prévu
+3. Brève description de votre projet ou objectif d'évaluation
+
+**⏱️ Délai de réponse :** Accès généralement accordé sous 24-48h pour demandes légitimes.
+
+### Publication Publique Future
+
+Une fois que le projet atteindra une adoption significative, le modèle sera migré vers **🤗 Hugging Face Hub** pour accès public avec licence appropriée.
+
+---
+
 🔮 Feuille de Route & Travaux Futurs
 Statut Actuel (V9 - MVP)
 ✅ Cœur MobileNetV2 entraîné (87,9% précision)
