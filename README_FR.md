@@ -10,7 +10,7 @@
 **Système d'apprentissage profond pour la détection automatisée des défauts routiers avec MobileNetV2.**  
 *Une solution Edge-AI axée sur la confidentialité pour les villes intelligentes.*
 
-Développé par **Persy Maki ND** | Étudiant en Ingénierie IA/ML
+Développé par **Persy Maki Ndombe** | Étudiant en Ingénierie IA/ML
 
 ---
 
@@ -326,7 +326,7 @@ Spécialisé en Vision par Ordinateur & Villes Intelligentes
 📄 Licence
 Licence MIT - Voir LICENSE pour détails.
 
-Copyright © 2026 Persy Maki ND
+Copyright © 2026 Persy Maki Ndombe
 
 🙏 Remerciements
 Dataset : Images routes Montréal auto-collectées (oct-déc 2025)
