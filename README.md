@@ -326,7 +326,7 @@ Specialized in Computer Vision & Smart Cities
 📄 License
 MIT License - See LICENSE for details.
 
-Copyright © 2026 Persy Maki ND
+Copyright © 2026 Persy Maki Ndombe
 
 🙏 Acknowledgments
 Dataset: Self-collected Montreal road images (Oct-Dec 2025)
