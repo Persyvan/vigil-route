@@ -65,9 +65,9 @@ Conçu pour combler l'écart entre les réparations réactives (plaintes citoyen
 
 | Image d'Entrée | Classification IA | Confiance | Niveau Risque | Action Requise |
 |----------------|-------------------|-----------|---------------|----------------|
-| ![Photo 1](demo_outputs/citizen_examples/detection_01_pothole.jpg) | **NID-DE-POULE** | 96% | 🔴 **CRITIQUE** | Réparation Immédiate |
-| ![Photo 2](demo_outputs/citizen_examples/detection_02_deformation.jpg) | **DÉFORMATION** | 98% | 🟠 **ÉLEVÉ** | Inspection Requise |
-| ![Photo 3](demo_outputs/citizen_examples/detection_03_healthy.jpg) | **ROUTE SAINE** | 100% | 🟢 **AUCUN** | Aucune Action |
+| ![Photo 1](demo_outputs/citizen_examples/screenshot_01_pothole.png) | **NID-DE-POULE** | 96% | 🔴 **CRITIQUE** | Réparation Immédiate |
+| ![Photo 2](demo_outputs/citizen_examples/screenshot_02_deformation.png)| **DÉFORMATION** | 98% | 🟠 **ÉLEVÉ** | Inspection Requise |
+| ![Photo 3](demo_outputs/citizen_examples/screenshot_03_healthy.png) | **ROUTE SAINE** | 100% | 🟢 **AUCUN** | Aucune Action |
 
 **📊 Rapports Exemples :**
 - [Rapport Excel (Démo)](demo_outputs/rapport_demo_anonymise.xlsx) - Niveaux urgence codes couleur
