@@ -64,7 +64,7 @@ Designed to bridge the gap between reactive repairs (citizen complaints) and pro
 
 | Input Image | AI Classification | Confidence | Risk Level | Action Required |
 |-------------|-------------------|------------|------------|-----------------|
-| ![Photo 1](demo_outputs/citizen_examples/screenshot_01_pothole.png) | **POTHOLE** | 96% | 🔴 **CRITICAL** | Immediate Repair |
+| ![Photo 1](demo_outputs/citizen_examples/screenshot_01_pothole.png) | **POTHOLE** | 98.5% | 🔴 **CRITICAL** | Immediate Repair |
 | ![Photo 2](demo_outputs/citizen_examples/screenshot_02_deformation.png) | **DEFORMATION** | 98% | 🟠 **HIGH** | Inspection Required |
 | ![Photo 3](demo_outputs/citizen_examples/screenshot_03_healthy.png) | **HEALTHY ROAD** | 100% | 🟢 **NONE** | No Action |
 
