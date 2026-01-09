@@ -73,8 +73,6 @@ Designed to bridge the gap between reactive repairs (citizen complaints) and pro
 - [Interactive Map (Demo)](demo_outputs/carte_interactive_demo.html) - Click to view geospatial visualization
 
 ---
-
-
 ## 🧠 The "Smart" Logic: Adaptive Risk Scoring
 
 VIGIL-ROUTE doesn't just find holes; it assesses **danger**. A deformation at 30km/h is a nuisance; at 90km/h, it's a safety hazard.
@@ -82,37 +80,29 @@ VIGIL-ROUTE doesn't just find holes; it assesses **danger**. A deformation at 30
 ### 1. Risk Calculation Formula
 
 The system fuses Computer Vision confidence with vehicle telemetry data:
+## 🧠 Decision Logic: The Danger Score
 
-```python
-def analyser_risque(classe, confiance, vitesse):
-    """
-    Calculate urgency based on:
-    - Defect type (pothole = higher risk)
-    - AI confidence
-    - Vehicle speed (higher speed = higher danger)
-    """
-    if classe == 'route_saine':
-        return "🟢 No Defect", "NONE"
-    
-    # Base severity score
-    score_base = 1.0 if classe == 'nid_de_poule' else 0.7
-    
-    # Speed amplification factor (exponential)
-    facteur_vitesse = 1.0 + (vitesse / 50.0) ** 1.2
-    
-    # Final danger score
-    score_danger = (confiance * score_base) * facteur_vitesse
-    
-    # Urgency thresholds
-    if score_danger >= 1.5:
-        return "🔴 CRITICAL", "IMMEDIATE INTERVENTION"
-    elif score_danger >= 1.0:
-        return "🟠 HIGH", "INSPECTION REQUIRED"
-    elif score_danger >= 0.7:
-        return "🟡 MEDIUM", "MONITORING"
-    else:
-        return "🟢 LOW", "PREVENTIVE"
-2. Adaptive Detection Thresholds
+VIGIL-ROUTE doesn't just find holes—it **assesses real-world danger**. A deformation at 30 km/h is a nuisance; the same deformation at 90 km/h is a fatal risk.
+
+The system calculates urgency with a simple equation:
+
+**Defect Severity × Vehicle Speed = Intervention Priority**
+
+### How it works
+
+1. **AI identifies the defect**: A Pothole (severe) weighs more than a Deformation (moderate).
+2. **System reads the speed**: The faster the vehicle, the more the danger score is amplified.
+3. **The verdict is instant**:
+
+| Context | Result | Required Action |
+|---------|--------|-----------------|
+| 🕳️ Pothole at 30 km/h | 🟡 MEDIUM | Monitoring |
+| 🕳️ Same pothole at 50 km/h | 🟠 HIGH | Inspection |
+| 🕳️ Same pothole at 90 km/h | 🔴 CRITICAL | Immediate Repair |
+
+**Why this is revolutionary:** The same defect changes priority based on road context. Highways (high speed) are protected first, without wasting resources on 30 km/h residential streets.
+
+### 2. Adaptive Detection Thresholds
 To reduce false positives at high speeds (safety-first approach), the model dynamically adjusts its sensitivity:
 
 Speed Zone	Pothole Threshold	Deformation Threshold	Rationale
@@ -299,7 +289,6 @@ The trained **MobileNetV2 model** (`vigil_route_classifier_v9_open_world.keras` 
 Once the project reaches significant adoption, the model will be migrated to **🤗 Hugging Face Hub** for public access with proper licensing.
 
 ---
-
 
 🔮 Roadmap & Future Work
 Current Status (V9 - MVP)
