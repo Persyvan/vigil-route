@@ -82,36 +82,27 @@ VIGIL-ROUTE ne trouve pas seulement des trous ; il évalue le **danger**. Une d�
 ### 1. Formule de Calcul du Risque
 
 Le système fusionne la confiance de la Vision par Ordinateur avec les données de télémétrie du véhicule :
+## 🧠 Logique de Décision : Le Score de Danger
 
-```python
-def analyser_risque(classe, confiance, vitesse):
-    """
-    Calcule l'urgence basée sur :
-    - Type de défaut (nid-de-poule = risque plus élevé)
-    - Confiance de l'IA
-    - Vitesse du véhicule (vitesse élevée = danger accru)
-    """
-    if classe == 'route_saine':
-        return "🟢 Aucun Défaut", "AUCUNE"
-    
-    # Score de sévérité de base
-    score_base = 1.0 if classe == 'nid_de_poule' else 0.7
-    
-    # Facteur d'amplification vitesse (exponentiel)
-    facteur_vitesse = 1.0 + (vitesse / 50.0) ** 1.2
-    
-    # Score de danger final
-    score_danger = (confiance * score_base) * facteur_vitesse
-    
-    # Seuils d'urgence
-    if score_danger >= 1.5:
-        return "🔴 CRITIQUE", "INTERVENTION IMMÉDIATE"
-    elif score_danger >= 1.0:
-        return "🟠 ÉLEVÉE", "INSPECTION REQUISE"
-    elif score_danger >= 0.7:
-        return "🟡 MOYENNE", "SURVEILLANCE"
-    else:
-        return "🟢 FAIBLE", "MONITORING"
+VIGIL-ROUTE ne se contente pas de trouver des trous, il **évalue le danger réel**. Une déformation à 30 km/h est une nuisance ; la même déformation à 90 km/h est un risque mortel.
+
+Le système calcule l'urgence selon une équation simple :
+
+**Gravité du défaut × Vitesse du véhicule = Priorité d'Intervention**
+
+### Comment ça marche ?
+
+1. **L'IA identifie le défaut** : Un Nid-de-poule (sévère) pèse plus lourd qu'une Déformation (modérée).
+2. **Le système lit la vitesse** : Plus le véhicule roule vite, plus le score de danger est multiplié.
+3. **Le verdict est immédiat** :
+
+| Contexte | Résultat | Action Requise |
+|----------|----------|----------------|
+| 🕳️ Nid-de-poule à 30 km/h | 🟡 MOYEN | Surveillance |
+| 🕳️ Même nid-de-poule à 50 km/h | 🟠 ÉLEVÉ | Inspection |
+| 🕳️ Même nid-de-poule à 90 km/h | 🔴 CRITIQUE | Réparation Immédiate |
+
+**Pourquoi c'est révolutionnaire ?** Un même défaut change de priorité selon le contexte routier. Les autoroutes (vitesse élevée) sont protégées en priorité, sans gaspiller de ressources sur des routes résidentielles à 30 km/h.
 
 ### 2. Seuils de Détection Adaptatifs
 Pour réduire les faux positifs à haute vitesse (approche sécurité d'abord), le modèle ajuste dynamiquement sa sensibilité :
