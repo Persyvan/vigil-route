@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b69cf5580c25408c3b77a0f685cae124 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_b69cf5580c25408c3b77a0f685cae124" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b69cf5580c25408c3b77a0f685cae124 = L.map(
+                "map_b69cf5580c25408c3b77a0f685cae124",
+                {
+                    center: [45.612252777777776, -73.56036388888889],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b2a024fb87e476e8ae58e8badb55feb6 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_b2a024fb87e476e8ae58e8badb55feb6.addTo(map_b69cf5580c25408c3b77a0f685cae124);
+        
+    
+            var marker_0fd96f300b99e81bd7e3116bfbcc6dd8 = L.marker(
+                [45.612252777777776, -73.56036388888889],
+                {
+}
+            ).addTo(map_b69cf5580c25408c3b77a0f685cae124);
+        
+    
+            var icon_124f9ccc629ff00e5782a6386cf906bc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "user",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_52e01871d8163b79498d88d0df812534 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_ade858c75de8527c1e58be1b1b5cf9fe = $(`<div id="html_ade858c75de8527c1e58be1b1b5cf9fe" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial; width: 280px;">                 <h4 style="color: red;">VIGIL-ROUTE</h4>                 <p><b>Mode:</b> CITIZEN</p>                 <p><b>Source:</b> /content/drive/MyDrive/Vigil_Route_Project/demo_citizen/IMG_3052.jpg</p>                 <p><b>Type:</b> nid_de_poule</p>                 <p><b>Confidence:</b> 98.5%</p>                 <p><b>Urgency:</b> 🔴 CRITICAL</p>                 <p><b>Action:</b> IMMEDIATE INTERVENTION</p>                 <p><b>Speed:</b> 50 km/h</p>                 <p><b>GPS:</b> EXIF iPhone</p>                 <p><b>Time:</b> 2026-01-07 17:56:30</p>             </div>             </div>`)[0];
+                popup_52e01871d8163b79498d88d0df812534.setContent(html_ade858c75de8527c1e58be1b1b5cf9fe);
+            
+        
+
+        marker_0fd96f300b99e81bd7e3116bfbcc6dd8.bindPopup(popup_52e01871d8163b79498d88d0df812534)
+        ;
+
+        
+    
+    
+                marker_0fd96f300b99e81bd7e3116bfbcc6dd8.setIcon(icon_124f9ccc629ff00e5782a6386cf906bc);
+            
+    
+            var marker_8aea637739b7c63e97582af4160282f9 = L.marker(
+                [45.610347222222224, -73.55632777777778],
+                {
+}
+            ).addTo(map_b69cf5580c25408c3b77a0f685cae124);
+        
+    
+            var icon_c7f920f2d1bb4e512362f9dd924bdcbb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "user",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4fbe4331b102dc7e6b13dc09ba4bf29b = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_b01490d74b0e24d0086bbc74eb1faa3a = $(`<div id="html_b01490d74b0e24d0086bbc74eb1faa3a" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial; width: 280px;">                 <h4 style="color: orange;">VIGIL-ROUTE</h4>                 <p><b>Mode:</b> CITIZEN</p>                 <p><b>Source:</b> /content/drive/MyDrive/Vigil_Route_Project/demo_citizen/IMG_3248.jpg</p>                 <p><b>Type:</b> deformation_chaussee</p>                 <p><b>Confidence:</b> 98.0%</p>                 <p><b>Urgency:</b> 🟠 HIGH</p>                 <p><b>Action:</b> INSPECTION REQUIRED</p>                 <p><b>Speed:</b> 50 km/h</p>                 <p><b>GPS:</b> EXIF iPhone</p>                 <p><b>Time:</b> 2026-01-07 17:56:32</p>             </div>             </div>`)[0];
+                popup_4fbe4331b102dc7e6b13dc09ba4bf29b.setContent(html_b01490d74b0e24d0086bbc74eb1faa3a);
+            
+        
+
+        marker_8aea637739b7c63e97582af4160282f9.bindPopup(popup_4fbe4331b102dc7e6b13dc09ba4bf29b)
+        ;
+
+        
+    
+    
+                marker_8aea637739b7c63e97582af4160282f9.setIcon(icon_c7f920f2d1bb4e512362f9dd924bdcbb);
+            
+    
+            var marker_24ff8a35ea77ded6484e39223eb823fd = L.marker(
+                [45.49113033809945, -73.60324633471718],
+                {
+}
+            ).addTo(map_b69cf5580c25408c3b77a0f685cae124);
+        
+    
+            var icon_37a172623fe514b6bd41f11e2cb63c04 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "user",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_05d0750f04ced89edb69ade36fcef42f = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_c574cf91c49e8c98a1f19b333b904aa1 = $(`<div id="html_c574cf91c49e8c98a1f19b333b904aa1" style="width: 100.0%; height: 100.0%;">             <div style="font-family: Arial; width: 280px;">                 <h4 style="color: red;">VIGIL-ROUTE</h4>                 <p><b>Mode:</b> CITIZEN</p>                 <p><b>Source:</b> /content/drive/MyDrive/Vigil_Route_Project/demo_citizen/IMG_2842_0064.jpg</p>                 <p><b>Type:</b> route_saine</p>                 <p><b>Confidence:</b> 100.0%</p>                 <p><b>Urgency:</b> 🟢 No defect</p>                 <p><b>Action:</b> NONE</p>                 <p><b>Speed:</b> 50 km/h</p>                 <p><b>GPS:</b> Simulated (EXIF absent)</p>                 <p><b>Time:</b> 2026-01-07 17:56:28</p>             </div>             </div>`)[0];
+                popup_05d0750f04ced89edb69ade36fcef42f.setContent(html_c574cf91c49e8c98a1f19b333b904aa1);
+            
+        
+
+        marker_24ff8a35ea77ded6484e39223eb823fd.bindPopup(popup_05d0750f04ced89edb69ade36fcef42f)
+        ;
+
+        
+    
+    
+                marker_24ff8a35ea77ded6484e39223eb823fd.setIcon(icon_37a172623fe514b6bd41f11e2cb63c04);
+            
+</script>
+</html>
