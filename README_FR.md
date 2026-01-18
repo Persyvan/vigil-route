@@ -45,7 +45,7 @@ Conçu pour combler l'écart entre les réparations réactives (plaintes citoyen
 ### Mode Flotte (Analyse Vidéo Temps Réel)
 *Traitement dashcam avec overlay HUD et protection vie privée*
 
-![Aperçu HUD Flotte](demo_outputs/fleet_examples/fleet_hud_screenshot_01.jpg)
+![Aperçu HUD Flotte](demo_outputs/fleet_examples/fleet_frame_01.png)
 
 📹 **Vidéo démo complète (2 min) :** [Voir sur LinkedIn](#) *(à venir)*  
 🎥 **Alternative :** [Voir sur YouTube](https://youtube.com/...) *(non répertorié - disponible sur demande)*
