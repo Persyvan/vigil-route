@@ -39,6 +39,86 @@ Conçu pour combler l'écart entre les réparations réactives (plaintes citoyen
 - **🗺️ Visualisation Géospatiale** : Cartes Folium interactives avec marqueurs de priorité
 - **🛡️ Architecture Confidentialité** : Couche de détection YOLOv8 (floutage piétons opérationnel)
 
+## 🚀 Démarrage Rapide
+
+### Option 1 : Essayer dans Google Colab (Aucune Installation)
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Persyvan/vigil-route/blob/main/notebooks/Vigil_Route_Demo.ipynb)
+
+**Parfait pour :**
+- Tester le modèle avec vos propres images
+- Comprendre le fonctionnement de l'IA
+- Démonstrations rapides
+
+**Étapes :**
+1. Cliquer sur le badge ci-dessus
+2. Téléverser le fichier modèle ([demander accès](mailto:persy.maki.ml@gmail.com))
+3. Téléverser une image de route
+4. Exécuter les cellules pour voir les résultats !
+
+---
+
+### Option 2 : Exécution Locale
+
+**Prérequis :**
+- Python 3.10+
+- Fichier modèle entraîné ([demander accès](models/README.md))
+
+**Installation :**
+
+# Cloner le dépôt
+git clone https://github.com/Persyvan/vigil-route.git
+cd vigil-route
+
+# Installer les dépendances
+pip install -r requirements.txt
+
+# Télécharger le modèle (contact : persy.maki.ml@gmail.com)
+# Placer le modèle dans : models/vigil_route_classifier_v9_open_world.keras
+Lancer la démo :
+
+# Analyse image unique
+python demo.py --image chemin/vers/image.jpg
+
+# Traitement par lot
+python demo.py --image chemin/vers/dossier/ --speed 60 --save
+
+# Zone de vitesse personnalisée (affecte le score de risque)
+python demo.py --image nid_de_poule.jpg --speed 70
+Sortie :
+
+🤖 VIGIL-ROUTE - Système de Détection des Défauts Routiers
+================================================================================
+
+📦 Chargement du modèle : models/vigil_route_classifier_v9_open_world.keras
+✅ Modèle chargé avec succès (MobileNetV2 - 87,9% précision)
+
+📸 Traitement de 1 image(s) à 50 km/h
+================================================================================
+
+📷 Image 1/1: nid_de_poule.jpg
+   🔍 Détecté : Nid-de-poule
+   📊 Confiance : 98,5% (seuil : 50,0%)
+   ⚠️  Niveau Risque : CRITIQUE
+   📋 Action : Réparation immédiate requise
+   ✅ VALIDÉ (au-dessus du seuil)
+
+📊 RÉSUMÉ DÉTECTION
+================================================================================
+Images traitées :       1
+Détections validées :   1
+Défauts critiques :     1
+Option 3 : Explorer les Démos
+Parcourir les exemples pré-générés sans exécuter de code :
+
+📸 Exemples Mode Citoyen - Captures détection smartphone
+
+🚗 Exemples Mode Flotte - Analyse vidéo dashcam avec HUD
+
+🗺️ Carte Interactive - Visualisation géographique (aperçu)
+
+📊 Rapport Exemple - Rapport Excel avec codes couleur urgence
+
 ---
 ## 🎬 Démo & Visuels
 
@@ -293,7 +373,6 @@ Une fois que le projet atteindra une adoption significative, le modèle sera mig
 
 ---
 
-
 🔮 Feuille de Route & Travaux Futurs
 Statut Actuel (V9 - MVP)
 ✅ Cœur MobileNetV2 entraîné (87,9% précision)
@@ -342,13 +421,13 @@ Ce projet est un Prototype de Recherche IA Appliquée développé dans le cadre 
 
 💼 Firmes ingénierie conseil
 
-Persy Maki ND
+Persy Maki Ndombe
 Étudiant en Ingénierie IA/ML
 Spécialisé en Vision par Ordinateur & Villes Intelligentes
 
 📧 Courriel : persy.maki.ml@gmail.com
 
-💼 LinkedIn : Persy Maki ND
+💼 LinkedIn : Persy Maki Ndombe
 
 🐙 GitHub : @Persyvan
 
