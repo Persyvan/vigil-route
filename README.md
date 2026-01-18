@@ -38,6 +38,87 @@ Designed to bridge the gap between reactive repairs (citizen complaints) and pro
 - **💧 Water Resistance**: Trained to detect water-filled potholes (rainy/winter conditions)
 - **🗺️ Geospatial Visualization**: Interactive Folium maps with priority markers
 - **🛡️ Privacy Architecture**: YOLOv8-based detection layer (pedestrian blur operational)
+---
+
+## 🚀 Quick Start
+
+### Option 1: Try in Google Colab (No Installation Required)
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Persyvan/vigil-route/blob/main/notebooks/Vigil_Route_Demo.ipynb)
+
+**Perfect for:**
+- Testing the model with your own images
+- Learning how the AI works
+- Quick demonstrations
+
+**Steps:**
+1. Click the badge above
+2. Upload the model file when prompted ([request access](mailto:persy.maki.ml@gmail.com))
+3. Upload a road image
+4. Run cells to see AI detection results!
+
+---
+
+### Option 2: Run Locally
+
+**Requirements:**
+- Python 3.10+
+- Trained model file ([request access](models/README.md))
+
+**Installation:**
+
+# Clone repository
+git clone https://github.com/Persyvan/vigil-route.git
+cd vigil-route
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Download model (contact persy.maki.ml@gmail.com)
+# Place model in: models/vigil_route_classifier_v9_open_world.keras
+
+Run Demo:
+
+# Single image analysis
+python demo.py --image path/to/image.jpg
+
+# Batch processing
+python demo.py --image path/to/folder/ --speed 60 --save
+
+# Custom speed zone (affects risk score)
+python demo.py --image pothole.jpg --speed 70
+Output:
+🤖 VIGIL-ROUTE - Road Defect Detection System
+================================================================================
+
+📦 Loading model from: models/vigil_route_classifier_v9_open_world.keras
+✅ Model loaded successfully (MobileNetV2 - 87.9% accuracy)
+
+📸 Processing 1 image(s) at 50 km/h speed zone
+================================================================================
+
+📷 Image 1/1: pothole.jpg
+   🔍 Detected: Pothole
+   📊 Confidence: 98.5% (threshold: 50.0%)
+   ⚠️  Risk Level: CRITICAL
+   📋 Action: Immediate repair required
+   ✅ VALIDATED (above threshold)
+
+📊 DETECTION SUMMARY
+================================================================================
+Total images processed: 1
+Validated detections:   1
+Critical defects:       1
+Option 3: Explore Demo Outputs
+Browse pre-generated examples without running code:
+
+📸 Citizen Mode Examples - Smartphone-based detection screenshots
+
+🚗 Fleet Mode Examples - Dashcam video analysis with HUD overlay
+
+🗺️ Interactive Map - Geographic visualization (preview)
+
+📊 Sample Report - Excel report with risk-based color coding
 
 ## 🎬 Demo & Visuals
 
