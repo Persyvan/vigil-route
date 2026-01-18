@@ -44,7 +44,7 @@ Designed to bridge the gap between reactive repairs (citizen complaints) and pro
 ### Fleet Mode (Real-Time Video Analysis)
 *Dashcam processing with HUD overlay and privacy protection*
 
-![Fleet HUD Preview](demo_outputs/fleet_examples/fleet_hud_screenshot_01.jpg)
+![Fleet HUD Preview](demo_outputs/fleet_examples/fleet_frame_01.png)
 
 📹 **Full demo video (2 min):** [Watch on LinkedIn](#) *(coming soon)*  
 🎥 **Alternative:** [Watch on YouTube](https://youtube.com/...) *(unlisted - available upon request)*
