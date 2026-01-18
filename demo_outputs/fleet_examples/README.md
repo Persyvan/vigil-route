@@ -1,17 +1,21 @@
 # Fleet Mode Examples
 
-## Overview
-Fleet Mode is designed for municipal or commercial vehicle fleets equipped with dashcam systems. It enables continuous road condition monitoring during regular operations.
+HUD overlay screenshots from dashcam video analysis showing real-time road damage detection during fleet vehicle operations.
 
-## Contents
-This folder contains annotated frames extracted from dashcam video footage showing real-time road damage detection.
+## Features Demonstrated
 
-### Sample Screenshots 
-- Dashcam frames with bounding box overlays
-- HUD-style visualizations with GPS and speed data
-- Multi-defect detection examples
+- **Continuous monitoring**: Frame-by-frame analysis from dashcam footage
+- **HUD overlay**: Real-time detection boxes and labels
+- **Multi-defect detection**: Simultaneous identification of multiple road damages
+- **Fleet integration**: Designed for municipal vehicles and service fleets
 
-## Technical Details
-- **Source**: Dashcam video (30 fps)
-- **Processing**: YOLOv8 real-time inference
-- **Output**: Annotated frames with defect classification
+## How to View
+
+The images display directly in this folder. Each screenshot shows:
+- Dashcam frame with HUD overlay
+- Bounding boxes around detected defects
+- Classification labels and confidence scores
+- Vehicle speed and location data
+
+These examples demonstrate automated road inspection during regular fleet operations.
+
