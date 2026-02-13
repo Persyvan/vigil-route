@@ -519,4 +519,4 @@ Un grand merci aux membres de **Civilians On Board AI** à travers le monde pour
 
 🌐 Lire dans d'autres langues : 🇬🇧 English
 
-Dernière mise à jour : Janvier 2026 | Version Modèle : V9
+Dernière mise à jour : Janvier 2026 | Version Modèle : V10
