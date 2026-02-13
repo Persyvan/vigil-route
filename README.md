@@ -1,225 +1,242 @@
 🚗 VIGIL-ROUTE: AI Road Defect Detection System
 
-[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.19-orange.svg)](https://www.tensorflow.org/)
-[![OpenCV](https://img.shields.io/badge/OpenCV-4.9-green.svg)](https://opencv.org/)
-[![YOLOv8](https://img.shields.io/badge/YOLO-v8-purple.svg)](https://github.com/ultralytics/ultralytics)
-[![Accuracy](https://img.shields.io/badge/Accuracy-87.9%25-brightgreen.svg)]()
-[![License](https://img.shields.io/badge/License-MIT-grey.svg)](LICENSE)
-
-**Deep Learning system for automated road defect detection using MobileNetV2.**  
-*A Privacy-First, Edge-AI solution for Smart Cities.*
-
-Developed by **Persy Maki Ndombe** | AI/ML Engineering Student
-
----
-
-**🌐 Language:** [🇬🇧 English](#) | [🇫🇷 Français](README_FR.md)
-
----
-
-## 📌 Project Overview
-
-VIGIL-ROUTE is a production-ready computer vision system that identifies road defects (potholes, pavement deformations) from images and videos with **87.9% accuracy**. 
-
-Designed to bridge the gap between reactive repairs (citizen complaints) and proactive maintenance, it introduces a novel **Danger Scoring Algorithm** that prioritizes repairs based on vehicle speed and defect severity.
-
-### 🎯 Key Features
-
-- **🧠 MobileNetV2 Architecture**: Lightweight CNN optimized for mobile/edge deployment
-- **📸 Dual-Mode Operation**: 
-  - **Citizen Mode**: Process photos from 311 reporting apps with EXIF GPS extraction
-  - **Fleet Mode**: Real-time dashcam video analysis with HUD overlay
-- **📊 Automated Reporting**: Excel reports with color-coded urgency + Interactive HTML maps
-- **🌍 GPS Integration**: 
-  - **Citizen**: EXIF metadata extraction (smartphone photos)
-  - **Fleet**: OBD-II hardware integration (vehicle telemetry)
-- **🚨 Adaptive Risk Scoring**: Speed-based urgency prioritization algorithm
-- **💧 Water Resistance**: Trained to detect water-filled potholes (rainy/winter conditions)
-- **🗺️ Geospatial Visualization**: Interactive Folium maps with priority markers
-- **🛡️ Privacy Architecture**: YOLOv8-based detection layer (pedestrian blur operational)
----
-
-## 🚀 Quick Start
-
-### Option 1: Try in Google Colab (No Installation Required)
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Persyvan/vigil-route/blob/main/notebooks/Vigil_Route_Demo.ipynb)
-
-**Perfect for:**
-- Testing the model with your own images
-- Learning how the AI works
-- Quick demonstrations
-
-**Steps:**
-1. Click the badge above
-2. Upload the model file when prompted ([request access](mailto:persy.maki.ml@gmail.com))
-3. Upload a road image
-4. Run cells to see AI detection results!
-
----
-
-### Option 2: Run Locally
-
-**Requirements:**
-- Python 3.10+
-- Trained model file ([request access](models/README.md))
-
-**Installation:**
-
-# Clone repository
-git clone https://github.com/Persyvan/vigil-route.git
-cd vigil-route
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Download model (contact persy.maki.ml@gmail.com)
-# Place model in: models/vigil_route_classifier_v9_open_world.keras
-
-Run Demo:
-
-# Single image analysis
-python demo.py --image path/to/image.jpg
-
-# Batch processing
-python demo.py --image path/to/folder/ --speed 60 --save
-
-# Custom speed zone (affects risk score)
-python demo.py --image pothole.jpg --speed 70
-Output:
-🤖 VIGIL-ROUTE - Road Defect Detection System
-================================================================================
-
-📦 Loading model from: models/vigil_route_classifier_v9_open_world.keras
-✅ Model loaded successfully (MobileNetV2 - 87.9% accuracy)
-
-📸 Processing 1 image(s) at 50 km/h speed zone
-================================================================================
-
-📷 Image 1/1: pothole.jpg
-   🔍 Detected: Pothole
-   📊 Confidence: 98.5% (threshold: 50.0%)
-   ⚠️  Risk Level: CRITICAL
-   📋 Action: Immediate repair required
-   ✅ VALIDATED (above threshold)
-
-📊 DETECTION SUMMARY
-================================================================================
-Total images processed: 1
-Validated detections:   1
-Critical defects:       1
-Option 3: Explore Demo Outputs
-Browse pre-generated examples without running code:
-
-📸 Citizen Mode Examples - Smartphone-based detection screenshots
-
-🚗 Fleet Mode Examples - Dashcam video analysis with HUD overlay
-
-🗺️ Interactive Map - Geographic visualization (preview)
-
-📊 Sample Report - Excel report with risk-based color coding
-
-## 🎬 Demo & Visuals
-
-### Fleet Mode (Real-Time Video Analysis)
-*Dashcam processing with HUD overlay and privacy protection*
-
-![Fleet HUD Preview](demo_outputs/fleet_examples/fleet_frame_01.png)
-![Fleet HUD Preview](demo_outputs/fleet_examples/fleet_frame_02.png)
+![alt text](https://img.shields.io/badge/Python-3.10+-blue.svg)
 
 
-📹 **Full demo video (2 min):** [Watch on LinkedIn](#) *(coming soon)*  
-🎥 **Alternative:** [Watch on YouTube](https://youtube.com/...) *(unlisted - available upon request)*
+![alt text](https://img.shields.io/badge/TensorFlow-2.19-orange.svg)
 
-**Key Outputs:**
-- Real-time defect detection with bounding boxes
-- Danger scoring algorithm in action
-- GPS trajectory mapping
-- Frame-by-frame Excel analysis
 
----
+![alt text](https://img.shields.io/badge/OpenCV-4.9-green.svg)
 
-### Citizen Mode (311 App Simulation)
-*Processing smartphone photos with automatic geolocation*
 
-**Example Detection Results:**
+![alt text](https://img.shields.io/badge/YOLO-v8-purple.svg)
 
-| Input Image | AI Classification | Confidence | Risk Level | Action Required |
-|-------------|-------------------|------------|------------|-----------------|
-| ![Photo 1](demo_outputs/citizen_examples/screenshot_01_pothole.png) | **POTHOLE** | 98.5% | 🔴 **CRITICAL** | Immediate Repair |
-| ![Photo 2](demo_outputs/citizen_examples/screenshot_02_deformation.png) | **DEFORMATION** | 98% | 🟠 **HIGH** | Inspection Required |
-| ![Photo 3](demo_outputs/citizen_examples/screenshot_03_healthy.png) | **HEALTHY ROAD** | 100% | 🟢 **NONE** | No Action |
 
-**📊 Sample Reports:**
-- [Excel Report (Demo)](demo_outputs/rapport_demo_anonymise.xlsx) - Color-coded urgency levels
-- [Interactive Map (Demo)](demo_outputs/carte_interactive_demo.html) - Click to view geospatial visualization
+![alt text](https://img.shields.io/badge/Accuracy-87.9%25-brightgreen.svg)
 
----
-## 🧠 The "Smart" Logic: Adaptive Risk Scoring
 
-VIGIL-ROUTE doesn't just find holes; it assesses **danger**. A deformation at 30km/h is a nuisance; at 90km/h, it's a safety hazard.
+![alt text](https://img.shields.io/badge/License-MIT-grey.svg)
 
-### 1. Risk Calculation Formula
+
+![alt text](https://img.shields.io/badge/%20Hugging%20Face-Public%20Demo-yellow)
+
+Deep Learning system for automated road defect detection using MobileNetV2.
+A Privacy-First, Edge-AI solution for Smart Cities.
+
+Developed by Persy Maki Ndombe | AI/ML Engineering Student
+
+🌐 Language: 🇬🇧 English | 🇫🇷 Français
+
+📌 Project Overview
+
+VIGIL-ROUTE is a production-ready computer vision system that identifies road defects (potholes, pavement deformations) from images and videos with 87.9% accuracy.
+
+Designed to bridge the gap between reactive repairs (citizen complaints) and proactive maintenance, it introduces a novel Danger Scoring Algorithm that prioritizes repairs based on vehicle speed and defect severity.
+
+🎯 Key Features
+
+🧠 MobileNetV2 Architecture: Lightweight CNN optimized for mobile/edge deployment.
+
+📸 Dual-Mode Operation:
+
+Citizen Mode: Processes photos from 311 reporting apps with EXIF GPS extraction.
+
+Fleet Mode: Real-time dashcam video analysis with HUD overlay.
+
+📊 Automated Reporting: Excel reports with color-coded urgency + Interactive HTML maps.
+
+🌍 GPS Integration:
+
+Citizen: EXIF metadata extraction (smartphone photos).
+
+Fleet: OBD-II hardware integration (vehicle telemetry).
+
+🚨 Adaptive Risk Scoring: Speed-based urgency prioritization algorithm.
+
+💧 Water Resistance: Trained to detect water-filled potholes (rainy/winter conditions).
+
+🗺️ Geospatial Visualization: Interactive Folium maps with priority markers.
+
+🛡️ Privacy Architecture: YOLOv8-based detection layer (pedestrian blur operational).
+
+🧠 Engineering Choice: Why MobileNetV2?
+
+We deliberately chose Image Classification (MobileNetV2) over Object Detection (YOLO) for the core defect model. This is a strategic Green AI & Efficiency choice:
+
+Ecological Impact: MobileNetV2 consumes significantly less energy. This is critical for battery-powered edge devices running all day.
+
+Hardware Resources: It runs smoothly on standard CPUs (Raspberry Pi, Smartphones) without requiring expensive, power-hungry GPUs.
+
+"Zone Alert" Logic: Municipalities repair road segments (e.g., 100m), not individual pixels. Classification answers the question "Is this segment damaged?" in 12ms, whereas pixel-by-pixel detection is much heavier.
+
+📊 Dataset & Performance (Model V10)
+
+Model Name: vigil_route_semifullseasonv10.keras
+Meaning: Semi-Full Season Coverage (Spring, Summer, Autumn, Early Winter).
+
+Dataset Methodology:
+
+Total Images: 1,584 (Montreal, Oct-Dec 2025)
+
+Conditions: Dry, Wet (Nov rain), Autumn leaves, Light snow (<5cm), Road salt, Urban lighting (18h).
+
+Split: 80% Training / 10% Validation / 10% Test.
+
+Distribution and Accuracy:
+
+Deformation: ~650 images (41%)
+
+Pothole: ~580 images (37%)
+
+Healthy Road: ~354 images (22%)
+
+Note on Accuracy (87.9%):
+This figure reflects the real-world data imbalance (fewer "perfect" potholes and more complex deformations). However, the model is tuned for safety: Healthy Road detection is 100%, ensuring NO false alarms waste municipal resources.
+
+Robustness by Condition:
+| Condition | Accuracy | Status |
+| :--- | :--- | :--- |
+| ☀️ Dry Roads | 92% | ✅ Production Ready |
+| 🌧️ Wet/Rain | 88% | ✅ Validated |
+| ❄️ Light Snow (<5cm)| 84% | ✅ Validated |
+| 🌆 Evening (Lighting) | 100% | ✅ Validated (18h00) |
+| 🌨️ Heavy Snow (>10cm) | N/A | ⚠️ Planned for V11 |
+
+🚀 Quick Start (Live Demo)
+
+Test the V10 Model Instantly without installing any code.
+We have deployed a public "Showcase" on Hugging Face that connects to our secure private backend.
+
+![alt text](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Try%20Public%20Demo-yellow)
+
+Perfect for:
+
+Testing the model with your own road images.
+
+Verifying detection accuracy (Pothole vs Deformation).
+
+🎬 Proofs and Visuals
+Fleet Mode (Real-Time Video Analysis)
+
+Dashcam processing with HUD overlay and privacy protection
+
+![alt text](demo_outputs/fleet_examples/fleet_frame_01.png)
+
+
+![alt text](demo_outputs/fleet_examples/fleet_frame_02.png)
+
+📹 Full demo video (2 min): Watch on LinkedIn (coming soon)
+🎥 Alternative: Watch on YouTube (unlisted - available upon request)
+
+Key Outputs:
+
+Real-time defect detection with bounding boxes
+
+Danger scoring algorithm in action
+
+GPS trajectory mapping
+
+Frame-by-frame Excel analysis
+
+Citizen Mode (311 App Simulation)
+
+Processing smartphone photos with automatic geolocation
+
+Example Detection Results:
+
+Input Image	AI Classification	Confidence	Risk Level	Action Required
+
+![alt text](demo_outputs/citizen_examples/screenshot_01_pothole.png)
+	POTHOLE	98.5%	🔴 CRITICAL	Immediate Repair
+
+![alt text](demo_outputs/citizen_examples/screenshot_02_deformation.png)
+	DEFORMATION	98%	🟠 HIGH	Inspection Required
+
+![alt text](demo_outputs/citizen_examples/screenshot_03_healthy.png)
+	HEALTHY ROAD	100%	🟢 NONE	No Action
+🗺️ Visualizations (Generated Reports)
+
+Instead of raw files, here are screenshots of the generated outputs:
+
+Interactive Map (Clustering & Priority):
+
+![alt text](replace_with_your_map_screenshot.jpg)
+
+Automated Excel Report:
+
+![alt text](replace_with_your_excel_screenshot.jpg)
+
+🧠 The "Smart" Logic: Adaptive Risk Scoring
+
+VIGIL-ROUTE doesn't just find holes; it assesses danger. A deformation at 30 km/h is a nuisance; at 90 km/h, it is a safety hazard.
+
+1. Risk Calculation Formula
 
 The system fuses Computer Vision confidence with vehicle telemetry data:
-## 🧠 Decision Logic: The Danger Score
 
-VIGIL-ROUTE doesn't just find holes—it **assesses real-world danger**. A deformation at 30 km/h is a nuisance; the same deformation at 90 km/h is a fatal risk.
+🧠 Decision Logic: The Danger Score
+
+VIGIL-ROUTE doesn't just find holes, it assesses real-world danger. A deformation at 30 km/h is a nuisance; the same deformation at 90 km/h is a fatal risk.
 
 The system calculates urgency with a simple equation:
 
-**Defect Severity × Vehicle Speed = Intervention Priority**
+Defect Severity × Vehicle Speed = Intervention Priority
 
-### How it works
+How it works?
 
-1. **AI identifies the defect**: A Pothole (severe) weighs more than a Deformation (moderate).
-2. **System reads the speed**: The faster the vehicle, the more the danger score is amplified.
-3. **The verdict is instant**:
+AI identifies the defect: A Pothole (severe) weighs more than a Deformation (moderate).
 
-| Context | Result | Required Action |
-|---------|--------|-----------------|
-| 🕳️ Pothole at 30 km/h | 🟡 MEDIUM | Monitoring |
-| 🕳️ Same pothole at 50 km/h | 🟠 HIGH | Inspection |
-| 🕳️ Same pothole at 90 km/h | 🔴 CRITICAL | Immediate Repair |
+System reads the speed: The faster the vehicle, the more the danger score is amplified.
 
-**Why this is revolutionary:** The same defect changes priority based on road context. Highways (high speed) are protected first, without wasting resources on 30 km/h residential streets.
+The verdict is instant:
 
-### 2. Adaptive Detection Thresholds
+Context	Result	Action Required
+🕳️ Pothole at 30 km/h	🟡 MEDIUM	Monitoring
+🕳️ Same pothole at 50 km/h	🟠 HIGH	Inspection
+🕳️ Same pothole at 90 km/h	🔴 CRITICAL	Immediate Repair
+
+Why this is revolutionary: The same defect changes priority based on road context. Highways (high speed) are protected first, without wasting resources on 30 km/h residential streets.
+
+2. Adaptive Detection Thresholds
+
 To reduce false positives at high speeds (safety-first approach), the model dynamically adjusts its sensitivity:
 
 Speed Zone	Pothole Threshold	Deformation Threshold	Rationale
 High (≥70 km/h)	45% confidence	60% confidence	Highway speeds require conservative detection
 Medium (50-69 km/h)	50% confidence	65% confidence	Urban arterial roads
 Low (<50 km/h)	60% confidence	70% confidence	Residential zones allow stricter filtering
+
 Why this matters: A false positive on a highway (70+ km/h) could cause dangerous braking. Lower thresholds = higher confidence required = fewer false alarms.
 
-🚛 Deployment Modes & Hardware Requirements
-Mode 1: CITIZEN (App Integration)
-How it works:
+3. Customizable Configuration
 
-Users submit photos via 311 mobile apps
+Municipalities can adjust cost and urgency parameters:
 
-System extracts GPS from EXIF metadata (iPhone/Android)
+Unit Cost (Pothole): 175 CAD (Default)
 
-AI classifies defect type and urgency
+Surface Cost (Deformation): 220 CAD/m²
 
-Generates georeferenced report for city dispatch
+Emergency Surcharge: 1.8x (for P1 Critical)
 
-Hardware: Smartphone only (iOS/Android)
-GPS Accuracy: ±10-50 meters (consumer GPS)
-Status: ✅ Fully Operational
+Winter Surcharge: +20% (Auto-detected Nov-Mar)
 
-Mode 2: FLEET (Municipal Vehicles)
-How it works:
+🚛 Pilot Program & Deployment
 
-Dashcam captures video during regular routes
+The system is ready for a 1-Month Pilot Deployment.
 
-AI analyzes frames in real-time (or post-processing)
+Pilot Scope:
 
-OBD-II reader provides speed data for risk scoring
+Citizen Mode Priority: Full integration with the existing Municipal 311 App API.
 
-Outputs annotated video + georeferenced Excel reports
+Fleet Mode Test: Equipment of 1 Municipal Vehicle (Garbage truck or Patrol car) for automated collection.
+
+Hardware Requirements (Fleet):
+
+GPS/Speed: OBD-II Reader.
+
+Vision: Standard Dashcam (1080p).
+
+Compute: Raspberry Pi 4 or Jetson Nano.
 
 ⚠️ Hardware Integration Requirements:
 
@@ -230,6 +247,7 @@ OBD-II GPS Reader	Real-time vehicle location + speed	⚠️ Hardware integration
 Dashcam	Video capture	✅ Any MP4 camera compatible
 Edge Device	Run AI inference	✅ Raspberry Pi 4 / Jetson Nano tested
 Data Sync	OBD-II ↔ Video timestamp alignment	⚠️ Requires fleet management integration
+
 Recommended Devices:
 
 FreeMatrix OBD-II Bluetooth (~$60 USD)
@@ -249,10 +267,8 @@ Architecture Overview
 The system includes a YOLOv8 detection layer to identify personal data before storage:
 
 Feature	Technology	Status	Note
-Pedestrian Protection	YOLOv8 (Class 0)	✅ Operational	Human detection and full-body Gaussian blur is functional
+Pedestrian Protection	YOLOv8 (Class 0)	✅ Operational	Human detection and full-body Gaussian blur functional
 Vehicle Anonymization	YOLOv8 + Geometric Detection	⚠️ Prototype	License plate detection implemented as Proof-of-Concept. Production deployment requires specialized OCR/Privacy solutions
-Transparency Note
-As an AI Engineering student project, VIGIL-ROUTE provides the logical architecture for privacy protection. The pedestrian blur system is fully functional, but license plate anonymization would require collaboration with privacy technology specialists (e.g., Brighter AI, D-ID) for commercial deployment.
 
 What works:
 
@@ -260,7 +276,7 @@ What works:
 
 ✅ Gaussian blur applied to detected regions
 
-✅ Privacy-first data pipeline architecture
+✅ Privacy-first pipeline architecture
 
 What requires professional integration:
 
@@ -271,35 +287,23 @@ What requires professional integration:
 ⚠️ GDPR/Law 25 documentation for municipal procurement
 
 🏗️ Technical Specifications
-Model Architecture (V9)
-Component	Details
-Framework	TensorFlow 2.19.0 / Keras
-Base Model	MobileNetV2 (ImageNet pretrained, frozen)
-Input Shape	224×224×3 RGB
-Classes	nid_de_poule, deformation_chaussee, route_saine
-Dataset	1,584 annotated images (Montreal, Oct-Dec 2025)
-Test Accuracy	87.90%
-Test Loss	0.3664
-Inference Time	~12ms (GPU T4) / ~120ms (CPU Colab)
-Why MobileNetV2 Over Object Detection?
-Design Choice Rationale:
-
-We chose Image Classification (MobileNetV2) over Object Detection (YOLOv8) for the core defect model to maximize efficiency on edge devices.
-
-Approach	Model	Size	Inference	Use Case
-Classification	MobileNetV2	14 MB	120ms (CPU)	"Is there a defect in this road segment?"
-Detection	YOLOv8	44 MB	200ms (CPU)	"Where exactly is the defect pixel-by-pixel?"
-Why Classification is Sufficient:
-
-Municipalities repair road segments (100m sections), not individual pixels. MobileNetV2 provides the necessary "Zone Alert" at 1/3 the compute cost and 1/4 the model size.
-
-Future Upgrade (V10): YOLOv8 segmentation planned for precise depth estimation (pothole volume calculation).
+Model Architecture (V10)
+| Component | Details |
+| :--- | :--- |
+| Framework | TensorFlow 2.19.0 / Keras |
+| Base Model | MobileNetV2 (ImageNet pretrained, frozen) |
+| Input Shape | 224×224×3 RGB |
+| Classes | pothole, road_deformation, healthy_road |
+| Dataset | 1,584 annotated images (Montreal, Oct-Dec 2025) |
+| Test Accuracy | 87.90% |
+| Test Loss | 0.3664 |
+| Inference Time | ~12ms (GPU T4) / ~120ms (CPU Colab pro) |
 
 🗂️ Dataset Methodology
 Collection Details
 Period: October - December 2025
 Location: Montreal, QC, Canada (various neighborhoods)
-Conditions: Winter transition (rain, wet asphalt, light snow, road salt)
+Conditions: Winter transition (sun, rain, wet asphalt, light snow, road salt)
 Device: iPhone (simulating citizen 311 app usage)
 
 Why Winter Data Matters:
@@ -310,105 +314,61 @@ Montreal's harsh climate creates unique challenges:
 
 🍂 Autumn leaf coverage (October)
 
-❄️ Early winter conditions (December salt/snow)
+❄️ Early winter conditions (salt/snow December)
 
 This seasonal diversity ensures the model works year-round, not just in ideal sunny conditions.
 
 Class Distribution (1,584 Images)
 text
-deformation_chaussee: ~650 images (41%)
-nid_de_poule:         ~580 images (37%)
-route_saine:          ~354 images (22%)
+road_deformation: ~650 images (41%)
+pothole: ~580 images (37%)
+healthy_road: ~354 images (22%)
 Per-Class Performance (Test Set):
 
 Class	Precision	Recall	F1-Score
-deformation_chaussee	85%	91%	88%
-nid_de_poule	83%	74%	79%
-route_saine	100%	100%	100%
-Key Insight: Perfect detection of healthy roads = No false alarms wasting city resources.
+road_deformation	85%	91%	88%
+pothole	83%	74%	79%
+healthy_road	100%	100%	100%
 
-🚀 Quick Start
-Installation
-bash
-git clone https://github.com/Persyvan/vigil-route.git
-cd vigil-route
-pip install -r requirements.txt
-Usage (Inference)
-python
-from scripts.vigil_brain import VigilBrain
+Key Insight: Perfect detection of healthy roads = No false alarms wasting municipal resources.
 
-# Load Model
-brain = VigilBrain('models/vigil_route_classifier_v9.keras')
+📥 Access to Resources (Model, Code, Datasets)
 
-# Analyze an image
-result = brain.analyze('test_images/pothole_01.jpg', speed=60)
-print(result)
-# Output: {'class': 'nid_de_poule', 'confidence': 0.96, 'urgency': 'CRITICAL'}
+The trained MobileNetV2 model (vigil_route_semifullseasonv10.keras - 89 MB), full training code, and original datasets are currently available upon request only for:
 
----
+🎓 Academic research collaboration
 
-## 📥 Model Access
+🏙️ Smart city pilot projects
 
-The trained **MobileNetV2 model** (`vigil_route_classifier_v9_open_world.keras` - 89 MB) is available **upon request** for:
+🔬 Technical evaluation by municipal engineering teams
 
-- 🎓 Academic research collaboration
-- 🏙️ Smart city pilot projects  
-- 🔬 Technical evaluation by municipal engineering teams
-- 💼 Employment screening (recruiters/hiring managers)
+💼 Employment screening (recruiters/hiring managers)
 
-### How to Request Access
+How to Request Access
 
-📧 **Email:** persy.maki.ml@gmail.com
+📧 Email: persy.maki.ml@gmail.com
 
-**Please include:**
-1. Your name and affiliation (company/university)
-2. Intended use case
-3. Brief description of your project or evaluation purpose
+Please include in your request:
 
-**⏱️ Response time:** Access typically granted within 24-48 hours for legitimate requests.
+Your name and affiliation (company/university)
 
-### Future Public Release
+Intended use case
 
-Once the project reaches significant adoption, the model will be migrated to **🤗 Hugging Face Hub** for public access with proper licensing.
+Brief description of your project or evaluation purpose
 
----
+⏱️ Response time: Access is typically granted within 24-48 hours for legitimate requests.
 
-🔮 Roadmap & Future Work
-Current Status (V9 - MVP)
-✅ MobileNetV2 core trained (87.9% accuracy)
+Future Public Release
 
-✅ Dual-mode pipeline operational
+The model will eventually be migrated to the 🤗 Hugging Face Hub for public access with the appropriate license.
 
-✅ Privacy architecture implemented (pedestrian blur)
+🔮 Roadmap
 
-✅ Risk scoring algorithm validated
+V11 (Full Season - 3-6 months): Training on heavy snow, ice storms, and deep night conditions (+500 images).
 
-✅ Excel + HTML map generation
+V12 (Segmentation - 6-12 months): Moving to Volumetric Analysis (Depth calculation) to estimate asphalt volume in liters using YOLOv8 Segmentation.
 
-Next Steps
-V1.1 (Hardware Integration) - 3-6 months
-
- OBD-II GPS testing with municipal fleet
-
- Real-time speed data integration
-
- Cloud deployment (AWS Lambda / Google Cloud Run)
-
-V2.0 (Advanced Detection) - 6-12 months
-
- YOLOv8 segmentation for volumetric analysis (pothole depth)
-
- Certified privacy module integration
-
- Multi-city dataset expansion (Toronto, Quebec City)
-
-V3.0 (Commercial Pilot) - 12+ months
-
- 311 API integration (City of Montreal)
-
- Full municipal pilot program (10-vehicle fleet)
-
- Real-world validation study
+V13 (Deployment): Full API integration and legal certification.
 
 🤝 Contact & Collaboration
 This project is an Applied AI Research Prototype developed as part of my AI/ML engineering studies. I am open to collaboration with:
@@ -421,7 +381,7 @@ This project is an Applied AI Research Prototype developed as part of my AI/ML e
 
 💼 Engineering consulting firms
 
-Persy Maki ND
+Persy Maki Ndombe
 AI/ML Engineering Student
 Specialized in Computer Vision & Smart Cities
 
@@ -439,16 +399,11 @@ MIT License - See LICENSE for details.
 Copyright © 2026 Persy Maki Ndombe
 
 🙏 Acknowledgments
-Dataset: Self-collected Montreal road images (Oct-Dec 2025)
 
-Framework: TensorFlow, Keras, OpenCV, Ultralytics (YOLOv8)
-
-Platform: Google Colab Pro
-
-Inspiration: Municipal 311 systems, Smart City infrastructure monitoring
+Special thanks to the members of Civilians On Board AI worldwide for their support and vision of Human-Centric AI.
 
 ⭐ If this project interests you, please star the repository!
 
-🌐 Read in other languages: 🇫🇷 Français
+🌐 Read in other languages: 🇬🇧 English
 
-Last updated: January 2026 | Model Version: V9
+Last updated: January 2026 | Model Version: V10
