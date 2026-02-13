@@ -6,6 +6,7 @@
 [![YOLOv8](https://img.shields.io/badge/YOLO-v8-purple.svg)](https://github.com/ultralytics/ultralytics)
 [![Précision](https://img.shields.io/badge/Pr%C3%A9cision-87.9%25-brightgreen.svg)]()
 [![License](https://img.shields.io/badge/License-MIT-grey.svg)](LICENSE)
+[![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Démo%20Publique-yellow)
 
 **Système d'apprentissage profond pour la détection automatisée des défauts routiers avec MobileNetV2.**  
 *Une solution Edge-AI axée sur la confidentialité pour les villes intelligentes.*
