@@ -84,12 +84,10 @@ Ce chiffre reflète le déséquilibre réel des données (il y a moins de nids-d
 **Testez le Modèle V10 Instantanément** sans installer de code.
 Nous avons déployé une "Vitrine" publique sur Hugging Face connectée à notre cerveau sécurisé.
 
-[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Lancer%20la%20Démo-yellow)](https://huggingface.co/spaces/PvanAI/vigilroute-demo)
-
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Lancer%20la%20Démo-yellow)](https://huggingface.co/spaces/PvanAI/vigilroute-brain)
 **Parfait pour :**
 *   Tester le modèle avec vos propres images de route.
 *   Vérifier la précision (Nid-de-poule vs Déformation).
-*   Voir les scores de confiance en action.
 
 ---
 
