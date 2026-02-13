@@ -2,21 +2,15 @@
 
 ![alt text](https://img.shields.io/badge/Python-3.10+-blue.svg)
 
-
 ![alt text](https://img.shields.io/badge/TensorFlow-2.19-orange.svg)
-
 
 ![alt text](https://img.shields.io/badge/OpenCV-4.9-green.svg)
 
-
 ![alt text](https://img.shields.io/badge/YOLO-v8-purple.svg)
-
 
 ![alt text](https://img.shields.io/badge/Accuracy-87.9%25-brightgreen.svg)
 
-
 ![alt text](https://img.shields.io/badge/License-MIT-grey.svg)
-
 
 ![alt text](https://img.shields.io/badge/%20Hugging%20Face-Public%20Demo-yellow)
 
