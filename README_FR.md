@@ -6,7 +6,7 @@
 [![YOLOv8](https://img.shields.io/badge/YOLO-v8-purple.svg)](https://github.com/ultralytics/ultralytics)
 [![Précision](https://img.shields.io/badge/Pr%C3%A9cision-87.9%25-brightgreen.svg)]()
 [![License](https://img.shields.io/badge/License-MIT-grey.svg)](LICENSE)
-![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Démo%20Publique-yellow)
+![Hugging Face](https://img.shields.io/badge/%20Hugging%20Face-Démo%20Publique-yellow)
 
 **Système d'apprentissage profond pour la détection automatisée des défauts routiers avec MobileNetV2.**  
 *Une solution Edge-AI axée sur la confidentialité pour les villes intelligentes.*
@@ -40,88 +40,60 @@ Conçu pour combler l'écart entre les réparations réactives (plaintes citoyen
 - **🗺️ Visualisation Géospatiale** : Cartes Folium interactives avec marqueurs de priorité
 - **🛡️ Architecture Confidentialité** : Couche de détection YOLOv8 (floutage piétons opérationnel)
 
-## 🚀 Démarrage Rapide
+---
 
-### Option 1 : Essayer dans Google Colab (Aucune Installation)
+## 🧠 Choix Ingénierie : Pourquoi MobileNetV2 ?
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Persyvan/vigil-route/blob/main/notebooks/Vigil_Route_Demo.ipynb)
+Nous avons délibérément choisi la **Classification d'Images (MobileNetV2)** plutôt que la Détection d'Objets (YOLO) pour le cœur du modèle. C'est un choix stratégique d'**Écologie et d'Efficacité** :
+
+1.  **Impact Écologique :** MobileNetV2 consomme nettement moins d'énergie. C'est crucial pour des appareils embarqués sur batterie qui tournent toute la journée.
+2.  **Ressources Matérielles :** Il fonctionne parfaitement sur des CPU standards (Raspberry Pi, Smartphones) sans nécessiter de cartes graphiques (GPU) coûteuses et énergivores.
+3.  **Logique "Alerte de Zone" :** Les villes réparent des *segments* de route (ex: 100m), pas des pixels. La classification répond à la question *"Ce segment est-il endommagé ?"* en 12ms, alors que la détection pixel par pixel est beaucoup plus lourde.
+
+---
+## 📊 Dataset & Performance (Modèle V10)
+
+**Nom du Modèle :** `vigil_route_semifullseasonv10.keras`
+**Signification :** Couverture Semi-Complète (Printemps, Été, Automne, Début Hiver).
+
+**Méthodologie du Dataset :**
+*   **Total Images :** 1 584 (Montréal, Oct-Déc 2025)
+*   **Conditions :** Sec, Mouillé (Pluie Nov), Feuilles automne, Neige légère (<5cm), Sel routier, Éclairage urbain (18h).
+*   **Split :** 80% Entraînement / 10% Validation / 10% Test.
+
+**Répartition et Précision :**
+*   **Déformation :** ~650 images (41%)
+*   **Nid-de-poule :** ~580 images (37%)
+*   **Route Saine :** ~354 images (22%)
+
+**Note sur la précision (87,9%) :**
+Ce chiffre reflète le déséquilibre réel des données (il y a moins de nids-de-poule "parfaits" et plus de déformations complexes). Cependant, le modèle est réglé pour la sécurité : **La détection des Routes Saines est à 100%**, garantissant qu'aucune fausse alerte ne gaspille les ressources municipales.
+
+**Robustesse par Condition :**
+| Condition | Précision | Statut |
+| :--- | :--- | :--- |
+| ☀️ **Routes Sèches** | **92%** | ✅ Prêt pour Production |
+| 🌧️ **Pluie/Mouillé** | **88%** | ✅ Validé |
+| ❄️ **Neige Légère (<5cm)**| **84%** | ✅ Validé |
+| 🌆 **Soir (Éclairage)** | **100%** | ✅ Validé (18h00) |
+| 🌨️ *Neige Forte (>10cm)* | *N/A* | ⚠️ Prévu pour V11 |
+
+---
+## 🚀 Démarrage Rapide (Démo Live)
+
+**Testez le Modèle V10 Instantanément** sans installer de code.
+Nous avons déployé une "Vitrine" publique sur Hugging Face connectée à notre cerveau sécurisé.
+
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Lancer%20la%20Démo-yellow)](https://huggingface.co/spaces/PvanAI/vigilroute-demo)
 
 **Parfait pour :**
-- Tester le modèle avec vos propres images
-- Comprendre le fonctionnement de l'IA
-- Démonstrations rapides
-
-**Étapes :**
-1. Cliquer sur le badge ci-dessus
-2. Téléverser le fichier modèle ([demander accès](mailto:persy.maki.ml@gmail.com))
-3. Téléverser une image de route
-4. Exécuter les cellules pour voir les résultats !
+*   Tester le modèle avec vos propres images de route.
+*   Vérifier la précision (Nid-de-poule vs Déformation).
+*   Voir les scores de confiance en action.
 
 ---
 
-### Option 2 : Exécution Locale
-
-**Prérequis :**
-- Python 3.10+
-- Fichier modèle entraîné ([demander accès](models/README.md))
-
-**Installation :**
-
-# Cloner le dépôt
-git clone https://github.com/Persyvan/vigil-route.git
-cd vigil-route
-
-# Installer les dépendances
-pip install -r requirements.txt
-
-# Télécharger le modèle (contact : persy.maki.ml@gmail.com)
-# Placer le modèle dans : models/vigil_route_classifier_v9_open_world.keras
-Lancer la démo :
-
-# Analyse image unique
-python demo.py --image chemin/vers/image.jpg
-
-# Traitement par lot
-python demo.py --image chemin/vers/dossier/ --speed 60 --save
-
-# Zone de vitesse personnalisée (affecte le score de risque)
-python demo.py --image nid_de_poule.jpg --speed 70
-Sortie :
-
-🤖 VIGIL-ROUTE - Système de Détection des Défauts Routiers
-================================================================================
-
-📦 Chargement du modèle : models/vigil_route_classifier_v9_open_world.keras
-✅ Modèle chargé avec succès (MobileNetV2 - 87,9% précision)
-
-📸 Traitement de 1 image(s) à 50 km/h
-================================================================================
-
-📷 Image 1/1: nid_de_poule.jpg
-   🔍 Détecté : Nid-de-poule
-   📊 Confiance : 98,5% (seuil : 50,0%)
-   ⚠️  Niveau Risque : CRITIQUE
-   📋 Action : Réparation immédiate requise
-   ✅ VALIDÉ (au-dessus du seuil)
-
-📊 RÉSUMÉ DÉTECTION
-================================================================================
-Images traitées :       1
-Détections validées :   1
-Défauts critiques :     1
-Option 3 : Explorer les Démos
-Parcourir les exemples pré-générés sans exécuter de code :
-
-📸 Exemples Mode Citoyen - Captures détection smartphone
-
-🚗 Exemples Mode Flotte - Analyse vidéo dashcam avec HUD
-
-🗺️ Carte Interactive - Visualisation géographique (aperçu)
-
-📊 Rapport Exemple - Rapport Excel avec codes couleur urgence
-
----
-## 🎬 Démo & Visuels
+## 🎬 Preuves et Visuels
 
 ### Mode Flotte (Analyse Vidéo Temps Réel)
 *Traitement dashcam avec overlay HUD et protection vie privée*
@@ -138,8 +110,6 @@ Parcourir les exemples pré-générés sans exécuter de code :
 - Cartographie trajectoire GPS
 - Analyse Excel image par image
 
----
-
 ### Mode Citoyen (Simulation App 311)
 *Traitement photos smartphone avec géolocalisation automatique*
 
@@ -151,9 +121,15 @@ Parcourir les exemples pré-générés sans exécuter de code :
 | ![Photo 2](demo_outputs/citizen_examples/screenshot_02_deformation.png)| **DÉFORMATION** | 98% | 🟠 **ÉLEVÉ** | Inspection Requise |
 | ![Photo 3](demo_outputs/citizen_examples/screenshot_03_healthy.png) | **ROUTE SAINE** | 100% | 🟢 **AUCUN** | Aucune Action |
 
-**📊 Rapports Exemples :**
-- [Rapport Excel (Démo)](demo_outputs/rapport_demo_anonymise.xlsx) - Niveaux urgence codes couleur
-- [Carte Interactive (Démo)](demo_outputs/carte_interactive_demo.html) - Cliquer pour visualisation géospatiale
+
+### 🗺️ Visualisations (Rapports Générés)
+*Au lieu de fichiers bruts, voici des captures des résultats générés :*
+
+**Carte Interactive (Clustering & Priorité) :**
+![Capture Carte](replace_with_your_map_screenshot.jpg)
+
+**Rapport Excel Automatisé :**
+![Capture Excel](replace_with_your_excel_screenshot.jpg)
 
 ---
 
@@ -195,32 +171,26 @@ Moyenne (50-69 km/h)	50% confiance	65% confiance	Routes artérielles urbaines
 Faible (<50 km/h)	60% confiance	70% confiance	Zones résidentielles permettent filtrage plus strict
 Pourquoi c'est important : Un faux positif sur autoroute (70+ km/h) pourrait causer un freinage dangereux. Seuils inférieurs = confiance requise plus élevée = moins de fausses alarmes.
 
-🚛 Modes de Déploiement & Exigences Matérielles
-Mode 1 : CITOYEN (Intégration App)
-Fonctionnement :
+### 3. Configuration Personnalisable**
+Les municipalités peuvent ajuster les coûts et paramètres :
+*   **Coût Unitaire (Nid-de-poule) :** 175 CAD (Défaut)
+*   **Coût Surface (Déformation) :** 220 CAD/m²
+*   **Majoration Urgence :** 1.8x (pour P1 Critique)
+*   **Majoration Hiver :** +20% (Détection auto Nov-Mars)
+---
 
-Utilisateurs soumettent photos via applications mobiles 311
+## 🚛 Programme Pilote & Déploiement
 
-Système extrait GPS des métadonnées EXIF (iPhone/Android)
+Le système est prêt pour un **Déploiement Pilote d'1 Mois**.
 
-IA classifie type de défaut et urgence
+**Périmètre du Pilote :**
+1.  **Priorité Mode Citoyen :** Intégration complète avec l'API de l'App 311 existante de la ville.
+2.  **Test Mode Flotte :** Équipement d'**1 Véhicule Municipal** (Camion poubelle ou patrouille) pour la collecte automatisée.
 
-Génère rapport géoréférencé pour dispatch municipal
-
-Matériel : Smartphone uniquement (iOS/Android)
-Précision GPS : ±10-50 mètres (GPS grand public)
-Statut : ✅ Pleinement Opérationnel
-
-Mode 2 : FLOTTE (Véhicules Municipaux)
-Fonctionnement :
-
-Dashcam capture vidéo pendant trajets réguliers
-
-IA analyse images en temps réel (ou post-traitement)
-
-Lecteur OBD-II fournit données vitesse pour score risque
-
-Sorties : vidéo annotée + rapports Excel géoréférencés
+**Prérequis Matériels (Flotte) :**
+*   **GPS/Vitesse :** Lecteur OBD-II.
+*   **Vision :** Dashcam Standard (1080p).
+*   **Calcul :** Raspberry Pi 4 ou Jetson Nano.
 
 ⚠️ Exigences Intégration Matérielle :
 
@@ -252,8 +222,6 @@ Le système inclut une couche de détection YOLOv8 pour identifier les données 
 Fonctionnalité	Technologie	Statut	Note
 Protection Piétons	YOLOv8 (Classe 0)	✅ Opérationnel	Détection humaine et flou Gaussien corps entier fonctionnel
 Anonymisation Véhicules	YOLOv8 + Détection Géométrique	⚠️ Prototype	Détection plaques immatriculation implémentée comme Preuve-de-Concept. Déploiement production nécessite solutions OCR/Confidentialité spécialisées
-Note de Transparence
-En tant que projet étudiant en ingénierie IA, VIGIL-ROUTE fournit l'architecture logique pour la protection de la vie privée. Le système de floutage piétons est pleinement fonctionnel, mais l'anonymisation des plaques d'immatriculation nécessiterait collaboration avec spécialistes technologies confidentialité (ex. Brighter AI, D-ID) pour déploiement commercial.
 
 Ce qui fonctionne :
 
@@ -272,7 +240,7 @@ Ce qui nécessite intégration professionnelle :
 ⚠️ Documentation RGPD/Loi 25 pour approvisionnement municipal
 
 🏗️ Spécifications Techniques
-Architecture Modèle (V9)
+Architecture Modèle (V10)
 Composant	Détails
 Framework	TensorFlow 2.19.0 / Keras
 Modèle de Base	MobileNetV2 (pré-entraîné ImageNet, gelé)
@@ -281,26 +249,13 @@ Classes	nid_de_poule, deformation_chaussee, route_saine
 Dataset	1 584 images annotées (Montréal, oct-déc 2025)
 Précision Test	87,90%
 Perte Test	0,3664
-Temps d'Inférence	~12ms (GPU T4) / ~120ms (CPU Colab)
-Pourquoi MobileNetV2 Plutôt que Détection d'Objets ?
-Justification Choix de Conception :
-
-Nous avons choisi Classification d'Images (MobileNetV2) plutôt que Détection d'Objets (YOLOv8) pour le modèle de défauts principal afin de maximiser l'efficacité sur appareils edge.
-
-Approche	Modèle	Taille	Inférence	Cas d'Usage
-Classification	MobileNetV2	14 Mo	120ms (CPU)	"Y a-t-il un défaut dans ce segment routier ?"
-Détection	YOLOv8	44 Mo	200ms (CPU)	"Où exactement est le défaut pixel par pixel ?"
-Pourquoi la Classification est Suffisante :
-
-Les municipalités réparent des segments routiers (sections de 100m), pas des pixels individuels. MobileNetV2 fournit l'«Alerte de Zone» nécessaire à 1/3 du coût de calcul et 1/4 de la taille du modèle.
-
-Amélioration Future (V10) : Segmentation YOLOv8 prévue pour estimation précise de profondeur (calcul volume nid-de-poule).
+Temps d'Inférence	~12ms (GPU T4) / ~120ms (CPU Colab pro)
 
 🗂️ Méthodologie du Dataset
 Détails de Collecte
 Période : Octobre - Décembre 2025
 Lieu : Montréal, QC, Canada (divers quartiers)
-Conditions : Transition hivernale (pluie, asphalte mouillé, neige légère, sel de route)
+Conditions : Transition hivernale (soleil, pluie, asphalte mouillé, neige légère, sel de route)
 Appareil : iPhone (simulation usage app 311 citoyenne)
 
 Pourquoi les Données Hivernales Comptent :
@@ -328,29 +283,9 @@ nid_de_poule	83%	74%	79%
 route_saine	100%	100%	100%
 Constat Clé : Détection parfaite routes saines = Aucune fausse alarme gaspillant ressources municipales.
 
-🚀 Démarrage Rapide
-Installation
-bash
-git clone https://github.com/Persyvan/vigil-route.git
-cd vigil-route
-pip install -r requirements.txt
-Utilisation (Inférence)
-python
-from scripts.vigil_brain import VigilBrain
-
-# Charger Modèle
-brain = VigilBrain('models/vigil_route_classifier_v9.keras')
-
-# Analyser une image
-result = brain.analyze('test_images/pothole_01.jpg', speed=60)
-print(result)
-# Sortie : {'class': 'nid_de_poule', 'confidence': 0.96, 'urgency': 'CRITICAL'}
-
----
-
 ## 📥 Accès au Modèle
 
-Le **modèle MobileNetV2 entraîné** (`vigil_route_classifier_v9_open_world.keras` - 89 Mo) est disponible **sur demande** pour :
+Le **modèle MobileNetV2 entraîné** (`vigil_route_semifullseasonv10.keras` - 89 Mo), le code d entrainement et les datasets sont disponible pour le moment que **sur demande** pour :
 
 - 🎓 Collaboration de recherche académique
 - 🏙️ Projets pilotes de villes intelligentes
@@ -370,47 +305,16 @@ Le **modèle MobileNetV2 entraîné** (`vigil_route_classifier_v9_open_world.ker
 
 ### Publication Publique Future
 
-Une fois que le projet atteindra une adoption significative, le modèle sera migré vers **🤗 Hugging Face Hub** pour accès public avec licence appropriée.
+le modèle sera migré vers **🤗 Hugging Face Hub** pour accès public avec licence appropriée.
 
 ---
+## 🔮 Feuille de Route (Roadmap)
 
-🔮 Feuille de Route & Travaux Futurs
-Statut Actuel (V9 - MVP)
-✅ Cœur MobileNetV2 entraîné (87,9% précision)
+*   **V11 (Full Season - 3-6 mois) :** Entraînement sur tempêtes, verglas et nuit profonde (+500 images).
+*   **V12 (Segmentation - 6-12 mois) :** Passage à l'analyse volumétrique (calcul profondeur) pour estimer le volume d'asphalte en litres via Segmentation YOLOv8.
+*   **V13 (Déploiement) :** Intégration API complète et certifications légales.
 
-✅ Pipeline dual-mode opérationnel
-
-✅ Architecture confidentialité implémentée (flou piétons)
-
-✅ Algorithme score risque validé
-
-✅ Génération Excel + carte HTML
-
-Prochaines Étapes
-V1.1 (Intégration Matérielle) - 3-6 mois
-
- Tests GPS OBD-II avec flotte municipale
-
- Intégration données vitesse temps réel
-
- Déploiement cloud (AWS Lambda / Google Cloud Run)
-
-V2.0 (Détection Avancée) - 6-12 mois
-
- Segmentation YOLOv8 pour analyse volumétrique (profondeur nid-de-poule)
-
- Intégration module confidentialité certifié
-
- Expansion dataset multi-villes (Toronto, Québec)
-
-V3.0 (Pilote Commercial) - 12+ mois
-
- Intégration API 311 (Ville de Montréal)
-
- Programme pilote municipal complet (flotte 10 véhicules)
-
- Étude validation monde réel
-
+---
 🤝 Contact & Collaboration
 Ce projet est un Prototype de Recherche IA Appliquée développé dans le cadre de mes études en ingénierie IA/ML. Je suis ouvert à collaboration avec :
 
@@ -440,6 +344,8 @@ Licence MIT - Voir LICENSE pour détails.
 Copyright © 2026 Persy Maki Ndombe
 
 🙏 Remerciements
+Aux membres de Civilians On Board AI à travers le monde
+
 Dataset : Images routes Montréal auto-collectées (oct-déc 2025)
 
 Framework : TensorFlow, Keras, OpenCV, Ultralytics (YOLOv8)
