@@ -158,10 +158,10 @@ This figure reflects the real data imbalance (there are fewer "perfect" potholes
 *Instead of raw files, here are captures of generated results:*
 
 **Interactive Map (Clustering & Priority):**
-![Map Capture](replace_with_your_map_screenshot.jpg)
+![Map Capture](replace_with_your_map_preview.jpg)
 
 **Automated Excel Report:**
-![Excel Capture](replace_with_your_excel_screenshot.jpg)
+![Excel Capture](replace_with_your_excel_preview.jpg)
 
 ---
 
