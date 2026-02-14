@@ -153,16 +153,14 @@ Ce chiffre reflète le déséquilibre réel des données (il y a moins de nids-d
 | ![Photo 1](demo_outputs/citizen_examples/screenshot_01_pothole.png) | **NID-DE-POULE** | 98,5% | 🔴 **CRITIQUE** | Réparation Immédiate |
 | ![Photo 2](demo_outputs/citizen_examples/screenshot_02_deformation.png)| **DÉFORMATION** | 98% | 🟠 **ÉLEVÉ** | Inspection Requise |
 | ![Photo 3](demo_outputs/citizen_examples/screenshot_03_healthy.png) | **ROUTE SAINE** | 100% | 🟢 **AUCUN** | Aucune Action |
-
 ### 🗺️ Visualisations (Rapports Générés)
 *Au lieu de fichiers bruts, voici des captures de résultats générés :*
 
 **Carte Interactive (Clustering & Priorité) :**
-![Capture Carte](replace_with_your_map_screenshot.jpg)
+![Capture Carte](demo_outputs/interactive_map/map_preview.png)
 
 **Rapport Excel Automatisé :**
-![Capture Excel](replace_with_your_excel_screenshot.jpg)
-
+![Capture Excel](demo_outputs/reports/excel_preview.png)
 ---
 
 ## 🧠 La Logique "Intelligente" : Score de Risque Adaptatif
