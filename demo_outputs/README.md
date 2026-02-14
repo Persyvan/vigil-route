@@ -26,6 +26,8 @@ Screenshots from the **311 app simulation** showing smartphone-based road damage
 
 **Geographic visualization** of detected road damages with clustering and priority levels.
 
+**📥 Download:** [carte_interactive_demo.html](https://github.com/Persyvan/vigil-route/raw/main/demo_outputs/interactive_map/carte_interactive_demo.html)
+
 ![Interactive Map](interactive_map/map_preview.png)
 
 ---
@@ -34,6 +36,8 @@ Screenshots from the **311 app simulation** showing smartphone-based road damage
 
 **Comprehensive detection statistics** with risk analysis and maintenance recommendations.
 
+**📥 Download:** [rapport_demo_anonymise.xlsx](https://github.com/Persyvan/vigil-route/raw/main/demo_outputs/reports/rapport_demo_anonymise.xlsx)
+
 ![Excel Report](reports/excel_preview.png)
 
 ---
@@ -41,6 +45,7 @@ Screenshots from the **311 app simulation** showing smartphone-based road damage
 ## 🎯 Usage Notes
 
 - All images display directly on GitHub
+- HTML and Excel files can be downloaded using the links above
 - All data is **anonymized** for demonstration purposes
 - Generated outputs are from **Vigil Route AI v10** (MobileNetV2 | 87.9% accuracy)
 
