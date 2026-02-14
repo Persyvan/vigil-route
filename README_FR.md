@@ -5,7 +5,7 @@
 [![OpenCV](https://img.shields.io/badge/OpenCV-4.8-green.svg)](https://opencv.org/)
 [![Précision](https://img.shields.io/badge/Précision-87.9%25-brightgreen.svg)]()
 [![Licence](https://img.shields.io/badge/Licence-Apache%202.0-grey.svg)](LICENSE)
-![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Démo%20Publique-yellow)(https://huggingface.co/spaces/PvanAI/vigilroute-brain)
+![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Démo%20Publique-yellow)
 
 **Système d'apprentissage profond pour la détection automatisée des défauts routiers avec MobileNetV2.**  
 *Une solution Edge-AI axée sur la confidentialité pour les villes intelligentes.*
