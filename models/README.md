@@ -2,24 +2,28 @@
 
 ## Overview
 
-This directory contains the trained AI model for road defect detection. The model file is **not included in this repository** due to GitHub's file size limitations (89 MB).
+This directory contains the trained AI model for road defect detection. The model file is not included in this repository due to GitHub's file size limitations (89 MB).
+
+---
 
 ## 📊 Model Specifications
 
 | Attribute | Details |
 |-----------|---------|
-| **Architecture** | MobileNetV2 (transfer learning) |
-| **Framework** | TensorFlow 2.19 / Keras |
-| **Input Size** | 224×224×3 RGB |
-| **Output Classes** | 3 (deformation_chaussee, nid_de_poule, route_saine) |
-| **Accuracy** | 87.9% on test set |
-| **File Size** | 89 MB |
-| **Format** | `.keras` (Keras native format) |
-| **Version** | v9 (open world deployment) |
+| Architecture | MobileNetV2 (transfer learning) |
+| Framework | TensorFlow 2.19 / Keras |
+| Input Size | 224×224×3 RGB |
+| Output Classes | 3 (deformation_chaussee, nid_de_poule, route_saine) |
+| Accuracy | 87.9% on test set |
+| File Size | 89 MB |
+| Format | .keras (Keras native format) |
+| Version | v10 (open world deployment) |
+
+---
 
 ## 📥 How to Access the Model
 
-The trained model (`vigil_route_classifier_v9_open_world.keras`) is available **on request** for:
+The trained model (`vigil_route_classifier_v10_open_world.keras`) is available on request for:
 
 - 🎓 Academic research collaboration
 - 🏙️ Smart city pilot projects
@@ -28,14 +32,16 @@ The trained model (`vigil_route_classifier_v9_open_world.keras`) is available **
 
 ### Request Access
 
-📧 **Email:** [persy.maki.ml@gmail.com](mailto:persy.maki.ml@gmail.com)
+📧 **Email:** persy.maki.ml@gmail.com
 
 **Please include:**
-1. Your name and affiliation (company/university)
-2. Intended use case
-3. Brief description of your project or evaluation goal
+- Your name and affiliation (company/university)
+- Intended use case
+- Brief description of your project or evaluation goal
 
-**⏱️ Response time:** Access typically granted within 24-48 hours for legitimate requests.
+⏱️ **Response time:** Access typically granted within 24-48 hours for legitimate requests.
+
+---
 
 ## 🔄 Alternative: Use Pre-trained MobileNetV2
 
@@ -55,24 +61,24 @@ base_model = MobileNetV2(
 📦 Expected File Structure
 Once you obtain the model, place it here:
 
-
+text
 vigil-route/
 └── models/
     ├── README.md (this file)
-    └── vigil_route_classifier_v9_open_world.keras  ← Place model here
+    └── vigil_route_classifier_v10_open_world.keras  ← Place model here
 🚀 Using the Model
 Option 1: Standalone Script
 bash
-python demo.py --image test.jpg --model models/vigil_route_classifier_v9_open_world.keras
+python demo.py --image test.jpg --model models/vigil_route_classifier_v10_open_world.keras
 Option 2: Google Colab
 Upload the model file when prompted in the Colab notebook.
 
 Option 3: Python Code
-
+python
 import tensorflow as tf
 
 # Load model
-model = tf.keras.models.load_model('models/vigil_route_classifier_v9_open_world.keras')
+model = tf.keras.models.load_model('models/vigil_route_classifier_v10_open_world.keras')
 
 # Run inference
 import cv2
@@ -100,10 +106,12 @@ Augmentation: Rotation, flip, brightness, contrast
 Validation: 80/20 train-test split
 
 Class Distribution
+deformation_chaussee: ~650 images (41%)
 
-deformation_chaussee : ~650 images (41%)
-nid_de_poule         : ~580 images (37%)
-route_saine          : ~354 images (22%)
+nid_de_poule: ~580 images (37%)
+
+route_saine: ~354 images (22%)
+
 Performance by Class
 Class	Precision	Recall	F1-Score
 Pavement Deformation	85%	91%	88%
@@ -132,4 +140,4 @@ For model access, technical questions, or collaboration:
 
 🐙 GitHub: @Persyvan
 
-Last updated: January 2026 | Model Version: V9
+Last updated: February 2026 | Model Version: V10
