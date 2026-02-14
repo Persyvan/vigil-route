@@ -4,7 +4,7 @@
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.17-orange.svg)](https://www.tensorflow.org/)
 [![OpenCV](https://img.shields.io/badge/OpenCV-4.8-green.svg)](https://opencv.org/)
 [![Accuracy](https://img.shields.io/badge/Accuracy-87.9%25-brightgreen.svg)]()
-[![License](https://img.shields.io/badge/License-MIT.-grey.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-grey.svg)](LICENSE)
 ![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Live%20Demo-yellow)
 
 **Deep learning system for automated road defect detection with MobileNetV2.**  
