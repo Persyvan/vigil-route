@@ -12,7 +12,7 @@
 
 - [x] **Core AI Model** - MobileNetV2 trained on 1,584 Montreal road images
 - [x] **Dual-Mode Architecture** - Citizen (311 app) + Fleet (dashcam) modes
-- [x] **Hugging Face Deployment** - Live demo at [pvanAI/vigilroute-brain](https://huggingface.co/spaces/pvanAI/vigilroute-brain)
+- [x] **Hugging Face Deployment** - Live demo at [pvanAI/vigilroute-brain](https://huggingface.co/spaces/PvanAI/vigilroute-brain)
 - [x] **Geographic Visualization** - Interactive map with clustering and priority
 - [x] **Automated Reporting** - Excel export with risk analysis
 - [x] **Open Source Documentation** - Complete README (FR/EN), contributing guidelines
