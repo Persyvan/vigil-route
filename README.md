@@ -14,7 +14,8 @@ Developed by **Persy Maki Ndombe** | AI/ML Engineering Student
 
 ---
 
-🌐 **Language:** [🇬🇧 English](#) | [🇫🇷 Français](README.fr.md)
+🌐 **Language:** [🇬🇧 English](#) | 🇫🇷 [Version française](README_FR.md)
+
 
 ---
 
